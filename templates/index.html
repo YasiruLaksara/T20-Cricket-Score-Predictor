@@ -23,8 +23,8 @@
 
         $(document).ready(function() {
             // Initialize default images
-            updateTeamImage('India', 'batting_team_image');
-            updateTeamImage('Pakistan', 'bowling_team_image');
+            updateTeamImage('England', 'batting_team_image');
+            updateTeamImage('South Africa', 'bowling_team_image');
 
             // Update images on team selection change
             $('#batting_team').change(function() {
@@ -53,7 +53,7 @@
                             <select class="form-control" name="batting_team" id="batting_team">
                                 <option value="">Select Team</option>
                                 {% for team in teams %}
-                                <option value="{{ team }}" {% if team == 'India' %}selected{% endif %}>{{ team }}</option>
+                                <option value="{{ team }}" {% if team == 'England' %}selected{% endif %}>{{ team }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -62,7 +62,7 @@
                             <select class="form-control" name="bowling_team" id="bowling_team">
                                 <option value="">Select Team</option>
                                 {% for team in teams %}
-                                <option value="{{ team }}" {% if team == 'Pakistan' %}selected{% endif %}>{{ team }}</option>
+                                <option value="{{ team }}" {% if team == 'South Africa' %}selected{% endif %}>{{ team }}</option>
                                 {% endfor %}
                             </select>
                         </div>
