@@ -26,6 +26,8 @@ venues = ['Melbourne Cricket Ground', 'Bay Oval', 'Eden Park', 'The Rose Bowl',
 @app.route('/', methods=['GET', 'POST'])
 def index():
     prediction = None
+    form_data = {}
+    
     if request.method == 'POST':
         batting_team = request.form['batting_team']
         bowling_team = request.form['bowling_team']
@@ -34,6 +36,17 @@ def index():
         overs = float(request.form['overs'])
         wickets = int(request.form['wickets'])
         last_five = int(request.form['last_five'])
+
+        # Store form data to pass back to template
+        form_data = {
+            'batting_team': batting_team,
+            'bowling_team': bowling_team,
+            'venue': venue,
+            'current_score': current_score,
+            'overs': overs,
+            'wickets': wickets,
+            'last_five': last_five
+        }
 
         balls_left = 120 - (overs * 6)
         wickets_left = 10 - wickets
@@ -48,7 +61,8 @@ def index():
         result = pipe.predict(input_df)
         prediction = int(result[0])
 
-    return render_template('index.html', teams=sorted(teams), venues=sorted(venues), prediction=prediction)
+    return render_template('index.html', teams=sorted(teams), venues=sorted(venues), 
+                         prediction=prediction, form_data=form_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
