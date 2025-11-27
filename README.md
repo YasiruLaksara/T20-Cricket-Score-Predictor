@@ -18,14 +18,31 @@ This project is a web-based T20 Cricket Score Predictor that uses machine learni
 
    ```bash
    git clone https://github.com/YasiruLaksara/T20-Cricket-Score-Predictor.git
-
+   cd T20-Cricket-Score-Predictor
    ```
 
-2. **Run the Web Application:**
-   python app.py
+2. **Create a Virtual Environment (Optional but Recommended):**
 
-3.**Access the Web App:**
-Open your browser and go to http://127.0.0.1:5000/.
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # On Windows
+   source venv/bin/activate  # On macOS/Linux
+   ```
+
+3. **Install Dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Web Application:**
+
+   ```bash
+   python app.py
+   ```
+
+5. **Access the Web App:**
+   Open your browser and go to http://127.0.0.1:5000/.
 
 ## Model Training
 
